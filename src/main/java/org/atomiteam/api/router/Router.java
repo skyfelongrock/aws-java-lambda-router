@@ -46,7 +46,7 @@ public class Router {
                     APIGatewayProxyResponseEvent apiResponse = new APIGatewayProxyResponseEvent();
                     apiResponse.setStatusCode(response.httpCode());
                     apiResponse.setBody(response.body());
-                    apiResponse.withHeaders(Map.of("Content-Type", response.contentType()));
+                    apiResponse.withMultiValueHeaders(response.getHeaders());
                     return apiResponse;
                 }
             }
